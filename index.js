@@ -20,7 +20,7 @@ if (process.env.NODE_ENB === 'production') {
     })
 }
 
-const PORT = /* process.env.PORT || */ 5000
+const PORT = process.env.PORT ||  5000
 const mongoUri = 'mongodb://admin:12345678a@ds033380.mlab.com:33380/test-app-ya'
 
 async function start() {
