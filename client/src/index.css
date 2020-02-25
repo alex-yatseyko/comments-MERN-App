@@ -1,0 +1,80 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+body {
+  background-image: linear-gradient(242deg, #d99c9d, #8677d9 51%, #6072cc);
+  color: #fff;
+  background-size: cover;
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+.logo {
+  max-width: 50px;
+}
+.brand-logo {
+  display: flex !important;
+    align-items: center;
+    min-width: 250px;
+    justify-content: space-between;
+}
+
+/* Home */
+.comment p{
+  color: black !important;
+}
+.text-center {
+  text-align: center;
+}
+.comment-avatar {
+  max-width: 30px !important;
+  margin-right: 15px;
+}
+.card-content {
+  align-items: center;
+  justify-content: space-between;
+}
+.card-action {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+.card-content .name {
+  padding-right: 10px;
+}
+i {
+  padding: 5px;
+  transition: .5s;
+  cursor: pointer;
+}
+i:hover {
+  /* transform: scale(1.04); */
+}
+/* About */
+.avatar {
+  width: 230px;
+  filter: blur(3px) grayscale(1);
+  transition: .5s;
+}
+.avatar:hover {
+  filter: blur(0px)
+}
+.likes {
+  position: absolute;
+  right: 0;
+  color: black;
+  display: flex;
+  align-items: center;
+  min-width: 120px;
+  justify-content: inherit;
+  margin-right: 17px;
+}
+
+
+
+
+
+/* Footer */
+.page-footer {
+  padding-top: 0px;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": " concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1",
+    "react-uuid": "^1.0.2",
+    "uuid": "^3.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
