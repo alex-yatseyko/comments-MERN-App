@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Comment } from '../components/Comment'
 import avatars from '../components/avatars';
 import { CommentInput } from '../components/CommentInput';
-// import { useHttp } from '../hooks/http.hook'
 
-// import fetch from 'fetch-with-proxy';
-// import uuid from 'uuid'
-// import axios from 'axios'
 
 
 export const Home = () => {    
@@ -26,24 +22,62 @@ export const Home = () => {
         return body;
       };
 
-    
+    const onRemove = id => {
+        setComments(
+            comments.map(
+                c => id === c._id ? {} : c
+            )
+        )
+    }
 
-      useEffect(() => {
+    const onLike = (id) => {
+        setComments(
+            comments.map(
+                c => {
+                    if(id === c._id) {
+                        c.likes = c.likes + 1
+                        return {...c}
+                    } 
+                    return {...c}
+                }
+            )
+        )
+    }
+
+    const onDislike = (id) => {
+        setComments(
+        // console.log(id)
+            comments.map(
+                c => {
+                    if(id === c._id) {
+                        c.dislikes = c.dislikes + 1
+                        return {...c}
+                    } 
+                    return {...c}
+                }
+            )
+        )
+    }
+
+    useEffect(() => {
         callApi()
-      }, [])
+    }, [])
 
     return (
         <div className="container">
             <h1 className="text-center">Comments App</h1>
             {comments ? comments.map(c => <Comment 
-                key={c._id} 
+                key={Math.floor(Math.random() * 9999)} 
+                id={c._id} 
                 ava={avatars[Math.floor(Math.random() * 8)]}
                 text={c.text}
                 name={c.name}
                 likes={c.likes}
                 dislikes={c.dislikes}
                 date={c.date}
-                // onRemove={onRemove}
+                onRemove={onRemove}
+                onLike={onLike}
+                onDislike={onDislike}
                 // onEdit={onEdit}
             />) : ''}
             {/* {avatars.map(m => <img alt="avatar" key={uuid.v4()} src={m} />)} */}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Comment = ( props ) => {
+export const Comment = ({ ava, name, text, likes, dislikes, date, id, onRemove, onLike, onDislike}) => {
     // const onRemove = (id) => {
     //     fetch(`http://localhost:5000/api/comments/${id}`, {
     //       method: 'DELETE',
@@ -9,7 +9,7 @@ export const Comment = ( props ) => {
     //     console.log(id)
     // }
 
-    return (
+    return !!text && (
       <div className="comment col s12 m7">
         <div className="card horizontal">
           <div className="card-image">
@@ -18,23 +18,22 @@ export const Comment = ( props ) => {
           <div className="card-stacked">
             <div className="flex card-content">
               <div className="flex">
-                <img className="circle responsive-img comment-avatar" src={props.ava} alt="avatar"/>
-                <p className="grey-text text-darken-2 name">{props.name}</p>
-                <p>{props.text}</p>
+                <img className="circle responsive-img comment-avatar" src={ava} alt="avatar"/>
+                <p className="grey-text text-darken-2 name">{name}</p>
+                <p>{text}</p>
               </div>
               <div className="likes">      
-                <i className="material-icons light-green-text">favorite</i>{props.likes}
-                {/* <i className="material-icons light-green-text">favorite_border</i> */}
-                <i className="material-icons red-text text-darken-4">thumb_down</i>{props.dislikes}
+                <i className="material-icons light-green-text" onClick={ () => onLike(id) }>favorite</i>{likes}
+                <i className="material-icons red-text text-darken-4" onClick={ () => onDislike(id) }>thumb_down</i>{dislikes}
               </div>
             </div>
             <div className="card-action">
               <div>
                 <i className="material-icons grey-text text-darken-2">edit</i>
-                <i onClick={() => props.onRemove(props._id)} className="material-icons black-text text-darken-4">delete</i>
+                <i onClick={() => onRemove(id)} className="material-icons black-text text-darken-4">delete</i>
                 <i className="material-icons blue-text text-lighten-1">reply</i>
               </div>
-              <p>{props.date.slice(0, 10)}</p>
+              <p>{date.slice(0, 10)}</p>
             </div>
           </div>
         </div>
