@@ -46,7 +46,6 @@ export const Home = () => {
 
     const onDislike = (id) => {
         setComments(
-        // console.log(id)
             comments.map(
                 c => {
                     if(id === c._id) {
@@ -57,6 +56,10 @@ export const Home = () => {
                 }
             )
         )
+    }
+
+    const onEdit = (id) => {
+        
     }
 
     useEffect(() => {
